@@ -63,8 +63,7 @@ void delegate(address to) {
     require(!sender.value.voted, "you already voted");
     require(to != GetSender(), "Self-delegation is disallowed.");
 
-    // 这种循环很危险的，这导致了死循环。
-    while(voters[to].delegate){
+    while(voters[to].delegate != sender){
         to = GetSender();
     }
 
