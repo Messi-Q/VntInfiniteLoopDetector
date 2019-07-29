@@ -9,10 +9,12 @@ constructor While5(){
 
 MUTABLE
 uint32 test1(uint256 res) {
+
     while(count < res) {
         count++;
     }
     EVENT_GETFINALCOUNT(count);
+
     return count
 }
 

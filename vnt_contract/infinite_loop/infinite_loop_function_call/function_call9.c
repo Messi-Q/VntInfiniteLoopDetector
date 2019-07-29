@@ -22,6 +22,9 @@ uint256 test2() {
 MUTABLE
 void test3(uint256 a, uint256 i) {
     Assert(a < i, "require a < i");
+    if (a >= i) {
+        Revert("require a < i");
+    }
     test1();
 }
 

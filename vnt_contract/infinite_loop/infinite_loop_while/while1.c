@@ -10,7 +10,7 @@ MUTABLE
 uint32 test1(uint256 x){
     // (1)
     while(1 == 1) {
-         count = x;
+        count = x;
     }
 
     // (2)

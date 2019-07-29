@@ -4,9 +4,8 @@ import argparse
 def parameter_parser():
     # Experiment parameters
     parser = argparse.ArgumentParser(description='Smart contract vulnerability detection based on graph neural network')
-    parser.add_argument('-D', '--dataset', type=str, default='SMART_CONTRACT_COMPARE_CHEM',
-                        choices=['SMART_CONTRACT_BY_AUTOMATIC_TOOL', 'SMART_CONTRACT_COMPARE_CHEM1',
-                                 'SMART_CONTRACT_COMPARE_CHEM', 'SMART_CONTRACT_COMPARE_CHEM1'])
+    parser.add_argument('-D', '--dataset', type=str, default='SMART_CONTRACT_VNT',
+                        choices=['SMART_CONTRACT_VNT'])
     parser.add_argument('-M', '--model', type=str, default='gcn_modify',
                         choices=['gcn_modify', 'mgcn', 'gat', 'gcn_origin'])
     parser.add_argument('--lr', type=float, default=0.001, help='learning rate')
@@ -22,7 +21,7 @@ def parameter_parser():
     parser.add_argument('--log_interval', type=int, default=1,
                         help='interval (number of batches) of logging')
     parser.add_argument('--device', type=str, default='cpu', choices=['cuda', 'cpu'])
-    parser.add_argument('--seed', type=int, default=80, help='random seed')
+    parser.add_argument('--seed', type=int, default=100, help='random seed')
     parser.add_argument('--shuffle_nodes', action='store_true', default=False, help='shuffle nodes for debugging')
     parser.add_argument('-F', '--folds', default=5, choices=[5, 8, 10], help='n-fold cross validation')
     parser.add_argument('-a', '--adj_sq', action='store_true', default=True,

@@ -1,0 +1,4 @@
+C C uint32 NULL 1 0 NULL
+W W uint32 C 1 2 INNCALL
+S S void NULL 0 2 FALLCALL
+F F fallback W 1 1 INNCALL

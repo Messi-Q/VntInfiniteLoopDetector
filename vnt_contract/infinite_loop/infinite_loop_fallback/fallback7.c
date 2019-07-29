@@ -2,7 +2,7 @@
 
 KEY uint256 amount = 100;
 
-typedef struct fallback4 {
+typedef struct fallback7 {
     uint256 balance;     // 存款
     string nickName;     // 昵称
 } Account;

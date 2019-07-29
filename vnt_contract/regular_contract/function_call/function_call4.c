@@ -10,6 +10,7 @@ CallParams params = {Address("0xaaaa"), U256(10000), 100000};  // 包含 address
 MUTABLE
 void test1(){
     uint32 res = test2(params);
+    PrintUint256T("res:", res);
 }
 
 #include "vntlib.h"
@@ -23,6 +24,6 @@ void test2() {
     PrintUint256T("a:", a);
     uint256 i = U256SafeMul(a, a)
     while(i > a) {
-        i--;
+        a++;
     }
 }

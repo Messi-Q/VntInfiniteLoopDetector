@@ -16,6 +16,7 @@ class vec2onehot:
     node_sentence = []
     var_sentence = []
     sn_sentence = []
+    infiniteLoopFlag_sentence = []
     varOP_vectors = {}
     edgeOP_vectors = {}
     nodeOP_vectors = {}
@@ -23,29 +24,27 @@ class vec2onehot:
     node_vectors = {}
     var_vectors = {}
     sn_vectors = {}
+    infiniteLoopFlag_vectors = {}
     # map user-defined variables (internal state) to symbolic names (e.g.,“VAR1”, “VAR2”) in the one-to-one fashion.
-    nodelist = ['NULL', 'VAR0', 'VAR1', 'VAR2', 'VAR3', 'VAR4', 'S0', 'S1', 'S2', 'S3', 'S4', 'S5', 'W0', 'W1', 'W2',
-                'W3', 'W4', 'W5', 'W6', 'W7', 'C0', 'C1', 'C2','C3', 'C4', 'C5', 'C6', 'C7', 'MSG']
+    nodelist = ['NULL', 'VAR1', 'VAR2', 'VAR3', 'VAR4', 'VAR5', 'S', 'W', 'C', 'F']
     # Edges (Variable-related, Program-related, Extension edge)
-    edgeOPlist = ["READ", "FW", "IF", "GB", "GN", "WHILE", "DW", "FOR", "DF", "BREAK", "CONTI", "RE", "AH", "RG",
-                  "RH", "IT"]
+    edgeOPlist = ["FW", "IF", "GB", "GN", "RE", "AS", "RG", "RV", "WHILE", "DOWHILE", "FOR", "MULFOR"]
     # variable expression
-    varOPlist = ["NULL", "BOOL", "ASSIGN", "INCRT", "DECRT"]
+    varOPlist = ["NULL", "BOOL", "ASSIGN", "INNFUN", "EVENT"]
     # node call representation
-    nodeOplist = ["NULL", "MSG", "INNADD"]
+    nodeOplist = ["NULL", "CALL", "INNCALL", "SELFCALL", "FALLCALL"]
     # map user-defined arguments to symbolic names (e.g., “ARG1”,“ARG2”) in the one-to-one fashion;
-    # Condition variable; Constants
-    varlist = ['ARG1', 'ARG2', 'ARG3', 'ARG4', 'ARG5', 'CON1', 'CON2', 'CON3', 'CNS1', 'CNS2', 'CNS3']
     # this notation (SN) is to show the execution order
     snlist = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
     # Access control
-    aclist = ['NULL', 'LimitedAC', 'NoLimit']
+    aclist = ['NULL', 'void', 'uint', 'int', 'uint8', 'uint16', 'uint32', 'uint64', 'uint256', 'bool', 'fallback',
+              'construct']
+    # infinite Loop Flag
+    infiniteLoopFlagList = ['NULL', 'INNLIMIT', 'CONNORM', 'OVERLIMIT', 'CONTRUE']
 
     def __init__(self):
         for i in range(len(self.nodelist)):
             self.node_sentence.append(i + 1)
-        for i in range(len(self.varlist)):
-            self.var_sentence.append(i + 1)
         for i in range(len(self.snlist)):
             self.sn_sentence.append(i + 1)
         for i in range(len(self.edgeOPlist)):
@@ -56,20 +55,22 @@ class vec2onehot:
             self.nodeAC_sentence.append(i + 1)
         for i in range(len(self.nodeOplist)):
             self.nodeOP_sentence.append(i + 1)
+        for i in range(len(self.infiniteLoopFlagList)):
+            self.infiniteLoopFlag_sentence.append(i + 1)
         self.node_dict = dict(zip(self.nodelist, self.node_sentence))
-        self.var_dict = dict(zip(self.varlist, self.var_sentence))
         self.sn_dict = dict(zip(self.snlist, self.sn_sentence))
         self.varOP_dict = dict(zip(self.varOPlist, self.varOP_sentence))
         self.edgOP_dict = dict(zip(self.edgeOPlist, self.edgeOP_sentence))
         self.nodeAC_dict = dict(zip(self.aclist, self.nodeAC_sentence))
         self.nodeOP_dict = dict(zip(self.nodeOplist, self.nodeOP_sentence))
+        self.infiniteLoopFlag_dict = dict(zip(self.infiniteLoopFlagList, self.infiniteLoopFlag_sentence))
         self.sn2vec()
         self.node2vec()
         self.edgeOP2vec()
-        self.var2vec()
         self.varOP2vec()
         self.nodeOP2vec()
         self.nodeAC2vec()
+        self.infiniteLoopFlag2vec()
 
     def output_vec(self, vectors):
         for node, vec in vectors.items():
@@ -83,15 +84,6 @@ class vec2onehot:
 
     def node2vecEmbedding(self, node):
         return self.node_vectors[node]
-
-    def var2vec(self):
-        for word, index in self.var_dict.items():
-            node_array = np.zeros(len(self.varlist), dtype=int)
-            self.var_vectors[word] = node_array
-            self.var_vectors[word][index - 1] = 1.0
-
-    def var2vecEmbedding(self, var):
-        return self.var_vectors[var]
 
     def sn2vec(self):
         for word, index in self.sn_dict.items():
@@ -137,3 +129,12 @@ class vec2onehot:
 
     def nodeAC2vecEmbedding(self, nodeAC):
         return self.nodeAC_vectors[nodeAC]
+
+    def infiniteLoopFlag2vec(self):
+        for word, index in self.infiniteLoopFlag_dict.items():
+            node_array = np.zeros(len(self.infiniteLoopFlagList), dtype=int)
+            self.infiniteLoopFlag_vectors[word] = node_array
+            self.infiniteLoopFlag_vectors[word][index - 1] = 1.0
+
+    def infiniteLoopFlag2vecEmbedding(self, infiniteLoopFlag):
+        return self.infiniteLoopFlag_vectors[infiniteLoopFlag]

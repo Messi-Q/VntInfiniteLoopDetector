@@ -59,7 +59,7 @@ void giveRightToVote(address voter) {
 // 将投票权代理给其他人
 void delegate(address to) {
     //指定引用
-    sender = voters[msg.sender];
+    sender = GetSender();
     require(!sender.value.voted, "you already voted");
     require(to != GetSender(), "Self-delegation is disallowed.");
 

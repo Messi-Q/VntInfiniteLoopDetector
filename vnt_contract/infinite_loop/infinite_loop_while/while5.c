@@ -9,6 +9,7 @@ constructor While5(){
 
 MUTABLE
 uint32 test1(uint256 res) {
+
     do {
         count++;
     } while(count != 0);

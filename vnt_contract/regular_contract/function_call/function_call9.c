@@ -21,3 +21,10 @@ void test2(uint256 a, uint256 i) {
     PrintUint256T("a < i", a);
 }
 
+MUTABLE
+void test3(uint256 a, uint256 i) {
+    if (a >= i) {
+        Revert("require a < i");
+    }
+    test1();
+}

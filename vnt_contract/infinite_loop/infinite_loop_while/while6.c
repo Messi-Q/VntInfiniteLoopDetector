@@ -14,7 +14,6 @@ uint32 test1(uint32 a, uint32 b) {
         count++;
     }
 
-    EVENT_GETFINALCOUNT(count);
     return count
 }
 

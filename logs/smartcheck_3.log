@@ -1,0 +1,331 @@
+using torch 1.0.0
+dataset SMART_CONTRACT_VNT
+model gcn_modify
+lr 0.001
+lr_decay_steps [10, 20]
+wd 0.0001
+dropout 0.1
+filters [64, 64, 64]
+n_hidden 0
+epochs 50
+batch_size 32
+threads 2
+log_interval 1
+device cpu
+seed 1856
+shuffle_nodes False
+folds 5
+adj_sq True
+scale_identity True
+use_cont_node_attr True
+alpha 0.2
+multi_head 4
+Loading data...
+16 not symmetric
+88 not symmetric
+160 not symmetric
+Class 0: 			108 samples
+Class 1: 			108 samples
+feature 1, count 864/864
+TRAIN: 172/216
+TEST: 44/216
+FOLD 0, train 172, test 44
+Initialize model...
+N trainable parameters: 24962
+Train Epoch: 1 [172/172 (100%)] Loss: 1.152863 (avg: 0.835920)  sec/iter: 0.0092
+Train Epoch: 2 [172/172 (100%)] Loss: 0.482432 (avg: 0.607768)  sec/iter: 0.0069
+Train Epoch: 3 [172/172 (100%)] Loss: 0.635020 (avg: 0.587482)  sec/iter: 0.0067
+Train Epoch: 4 [172/172 (100%)] Loss: 0.402638 (avg: 0.487309)  sec/iter: 0.0066
+Train Epoch: 5 [172/172 (100%)] Loss: 0.393213 (avg: 0.486996)  sec/iter: 0.0061
+Train Epoch: 6 [172/172 (100%)] Loss: 0.417718 (avg: 0.368849)  sec/iter: 0.0066
+Train Epoch: 7 [172/172 (100%)] Loss: 0.193949 (avg: 0.336892)  sec/iter: 0.0066
+Train Epoch: 8 [172/172 (100%)] Loss: 0.274844 (avg: 0.253585)  sec/iter: 0.0070
+Train Epoch: 9 [172/172 (100%)] Loss: 0.122216 (avg: 0.185078)  sec/iter: 0.0067
+Train Epoch: 10 [172/172 (100%)] Loss: 0.091119 (avg: 0.143497)  sec/iter: 0.0072
+Train Epoch: 11 [172/172 (100%)] Loss: 0.093271 (avg: 0.116892)  sec/iter: 0.0069
+Train Epoch: 12 [172/172 (100%)] Loss: 0.069260 (avg: 0.114016)  sec/iter: 0.0069
+Train Epoch: 13 [172/172 (100%)] Loss: 0.101960 (avg: 0.096706)  sec/iter: 0.0065
+Train Epoch: 14 [172/172 (100%)] Loss: 0.068016 (avg: 0.096278)  sec/iter: 0.0063
+Train Epoch: 15 [172/172 (100%)] Loss: 0.106219 (avg: 0.092083)  sec/iter: 0.0063
+Train Epoch: 16 [172/172 (100%)] Loss: 0.143380 (avg: 0.096099)  sec/iter: 0.0069
+Train Epoch: 17 [172/172 (100%)] Loss: 0.076892 (avg: 0.088361)  sec/iter: 0.0068
+Train Epoch: 18 [172/172 (100%)] Loss: 0.068864 (avg: 0.085909)  sec/iter: 0.0070
+Train Epoch: 19 [172/172 (100%)] Loss: 0.081468 (avg: 0.095868)  sec/iter: 0.0076
+Train Epoch: 20 [172/172 (100%)] Loss: 0.061988 (avg: 0.084268)  sec/iter: 0.0071
+Train Epoch: 21 [172/172 (100%)] Loss: 0.070110 (avg: 0.089221)  sec/iter: 0.0064
+Train Epoch: 22 [172/172 (100%)] Loss: 0.012799 (avg: 0.076832)  sec/iter: 0.0067
+Train Epoch: 23 [172/172 (100%)] Loss: 0.028048 (avg: 0.088469)  sec/iter: 0.0063
+Train Epoch: 24 [172/172 (100%)] Loss: 0.053965 (avg: 0.086348)  sec/iter: 0.0071
+Train Epoch: 25 [172/172 (100%)] Loss: 0.023888 (avg: 0.085784)  sec/iter: 0.0068
+Train Epoch: 26 [172/172 (100%)] Loss: 0.086515 (avg: 0.073916)  sec/iter: 0.0070
+Train Epoch: 27 [172/172 (100%)] Loss: 0.083551 (avg: 0.084957)  sec/iter: 0.0074
+Train Epoch: 28 [172/172 (100%)] Loss: 0.129934 (avg: 0.085645)  sec/iter: 0.0065
+Train Epoch: 29 [172/172 (100%)] Loss: 0.120717 (avg: 0.081733)  sec/iter: 0.0072
+Train Epoch: 30 [172/172 (100%)] Loss: 0.038071 (avg: 0.073416)  sec/iter: 0.0069
+Train Epoch: 31 [172/172 (100%)] Loss: 0.099738 (avg: 0.076588)  sec/iter: 0.0071
+Train Epoch: 32 [172/172 (100%)] Loss: 0.142203 (avg: 0.077763)  sec/iter: 0.0070
+Train Epoch: 33 [172/172 (100%)] Loss: 0.055290 (avg: 0.081601)  sec/iter: 0.0069
+Train Epoch: 34 [172/172 (100%)] Loss: 0.200095 (avg: 0.077957)  sec/iter: 0.0069
+Train Epoch: 35 [172/172 (100%)] Loss: 0.053695 (avg: 0.077845)  sec/iter: 0.0063
+Train Epoch: 36 [172/172 (100%)] Loss: 0.134872 (avg: 0.080449)  sec/iter: 0.0068
+Train Epoch: 37 [172/172 (100%)] Loss: 0.111891 (avg: 0.080299)  sec/iter: 0.0067
+Train Epoch: 38 [172/172 (100%)] Loss: 0.067177 (avg: 0.080739)  sec/iter: 0.0064
+Train Epoch: 39 [172/172 (100%)] Loss: 0.083281 (avg: 0.074305)  sec/iter: 0.0063
+Train Epoch: 40 [172/172 (100%)] Loss: 0.019792 (avg: 0.084970)  sec/iter: 0.0067
+Train Epoch: 41 [172/172 (100%)] Loss: 0.048612 (avg: 0.074566)  sec/iter: 0.0066
+Train Epoch: 42 [172/172 (100%)] Loss: 0.123851 (avg: 0.073139)  sec/iter: 0.0065
+Train Epoch: 43 [172/172 (100%)] Loss: 0.118538 (avg: 0.079989)  sec/iter: 0.0063
+Train Epoch: 44 [172/172 (100%)] Loss: 0.130590 (avg: 0.075860)  sec/iter: 0.0065
+Train Epoch: 45 [172/172 (100%)] Loss: 0.096218 (avg: 0.074945)  sec/iter: 0.0067
+Train Epoch: 46 [172/172 (100%)] Loss: 0.034615 (avg: 0.075854)  sec/iter: 0.0069
+Train Epoch: 47 [172/172 (100%)] Loss: 0.121470 (avg: 0.079949)  sec/iter: 0.0069
+Train Epoch: 48 [172/172 (100%)] Loss: 0.111384 (avg: 0.087773)  sec/iter: 0.0067
+Train Epoch: 49 [172/172 (100%)] Loss: 0.073891 (avg: 0.072145)  sec/iter: 0.0066
+Train Epoch: 50 [172/172 (100%)] Loss: 0.071596 (avg: 0.081083)  sec/iter: 0.0072
+Test set (epoch 50): Average loss: 0.1104, Accuracy: (94.27%), Recall: (90.81%), Precision: (100.00%), F1-Score: (95.15%)  sec/iter: 0.0165
+
+fn_list(predict == 0 & label == 1): [164, 92]
+fp_list(predict == 1 & label == 0): []
+
+TRAIN: 172/216
+TEST: 44/216
+FOLD 1, train 172, test 44
+Initialize model...
+N trainable parameters: 24962
+Train Epoch: 1 [172/172 (100%)] Loss: 0.564408 (avg: 0.967973)  sec/iter: 0.0070
+Train Epoch: 2 [172/172 (100%)] Loss: 0.596564 (avg: 0.638007)  sec/iter: 0.0067
+Train Epoch: 3 [172/172 (100%)] Loss: 0.477718 (avg: 0.539119)  sec/iter: 0.0067
+Train Epoch: 4 [172/172 (100%)] Loss: 0.421943 (avg: 0.482494)  sec/iter: 0.0073
+Train Epoch: 5 [172/172 (100%)] Loss: 0.426269 (avg: 0.422826)  sec/iter: 0.0067
+Train Epoch: 6 [172/172 (100%)] Loss: 0.283269 (avg: 0.343235)  sec/iter: 0.0074
+Train Epoch: 7 [172/172 (100%)] Loss: 0.215339 (avg: 0.266058)  sec/iter: 0.0070
+Train Epoch: 8 [172/172 (100%)] Loss: 0.220273 (avg: 0.253288)  sec/iter: 0.0073
+Train Epoch: 9 [172/172 (100%)] Loss: 0.162682 (avg: 0.149274)  sec/iter: 0.0072
+Train Epoch: 10 [172/172 (100%)] Loss: 0.119806 (avg: 0.131032)  sec/iter: 0.0075
+Train Epoch: 11 [172/172 (100%)] Loss: 0.084585 (avg: 0.114749)  sec/iter: 0.0073
+Train Epoch: 12 [172/172 (100%)] Loss: 0.063437 (avg: 0.094296)  sec/iter: 0.0072
+Train Epoch: 13 [172/172 (100%)] Loss: 0.099035 (avg: 0.083336)  sec/iter: 0.0068
+Train Epoch: 14 [172/172 (100%)] Loss: 0.033786 (avg: 0.083388)  sec/iter: 0.0069
+Train Epoch: 15 [172/172 (100%)] Loss: 0.089770 (avg: 0.081445)  sec/iter: 0.0066
+Train Epoch: 16 [172/172 (100%)] Loss: 0.272781 (avg: 0.078473)  sec/iter: 0.0075
+Train Epoch: 17 [172/172 (100%)] Loss: 0.111658 (avg: 0.075137)  sec/iter: 0.0071
+Train Epoch: 18 [172/172 (100%)] Loss: 0.126715 (avg: 0.078872)  sec/iter: 0.0089
+Train Epoch: 19 [172/172 (100%)] Loss: 0.112097 (avg: 0.076788)  sec/iter: 0.0082
+Train Epoch: 20 [172/172 (100%)] Loss: 0.120739 (avg: 0.072411)  sec/iter: 0.0084
+Train Epoch: 21 [172/172 (100%)] Loss: 0.094636 (avg: 0.070239)  sec/iter: 0.0078
+Train Epoch: 22 [172/172 (100%)] Loss: 0.057977 (avg: 0.075897)  sec/iter: 0.0099
+Train Epoch: 23 [172/172 (100%)] Loss: 0.042785 (avg: 0.066427)  sec/iter: 0.0077
+Train Epoch: 24 [172/172 (100%)] Loss: 0.092550 (avg: 0.068202)  sec/iter: 0.0072
+Train Epoch: 25 [172/172 (100%)] Loss: 0.040055 (avg: 0.066863)  sec/iter: 0.0069
+Train Epoch: 26 [172/172 (100%)] Loss: 0.067524 (avg: 0.071079)  sec/iter: 0.0079
+Train Epoch: 27 [172/172 (100%)] Loss: 0.038738 (avg: 0.073262)  sec/iter: 0.0074
+Train Epoch: 28 [172/172 (100%)] Loss: 0.021816 (avg: 0.063310)  sec/iter: 0.0068
+Train Epoch: 29 [172/172 (100%)] Loss: 0.052587 (avg: 0.069875)  sec/iter: 0.0073
+Train Epoch: 30 [172/172 (100%)] Loss: 0.019260 (avg: 0.064958)  sec/iter: 0.0078
+Train Epoch: 31 [172/172 (100%)] Loss: 0.066729 (avg: 0.074740)  sec/iter: 0.0077
+Train Epoch: 32 [172/172 (100%)] Loss: 0.068984 (avg: 0.064026)  sec/iter: 0.0074
+Train Epoch: 33 [172/172 (100%)] Loss: 0.013824 (avg: 0.069181)  sec/iter: 0.0070
+Train Epoch: 34 [172/172 (100%)] Loss: 0.058690 (avg: 0.060635)  sec/iter: 0.0073
+Train Epoch: 35 [172/172 (100%)] Loss: 0.047268 (avg: 0.072042)  sec/iter: 0.0071
+Train Epoch: 36 [172/172 (100%)] Loss: 0.086601 (avg: 0.062964)  sec/iter: 0.0073
+Train Epoch: 37 [172/172 (100%)] Loss: 0.129864 (avg: 0.064742)  sec/iter: 0.0070
+Train Epoch: 38 [172/172 (100%)] Loss: 0.025847 (avg: 0.066046)  sec/iter: 0.0067
+Train Epoch: 39 [172/172 (100%)] Loss: 0.094906 (avg: 0.065251)  sec/iter: 0.0071
+Train Epoch: 40 [172/172 (100%)] Loss: 0.044960 (avg: 0.058383)  sec/iter: 0.0071
+Train Epoch: 41 [172/172 (100%)] Loss: 0.013277 (avg: 0.063384)  sec/iter: 0.0072
+Train Epoch: 42 [172/172 (100%)] Loss: 0.033397 (avg: 0.058684)  sec/iter: 0.0074
+Train Epoch: 43 [172/172 (100%)] Loss: 0.041915 (avg: 0.070866)  sec/iter: 0.0068
+Train Epoch: 44 [172/172 (100%)] Loss: 0.134041 (avg: 0.066399)  sec/iter: 0.0071
+Train Epoch: 45 [172/172 (100%)] Loss: 0.127675 (avg: 0.060570)  sec/iter: 0.0084
+Train Epoch: 46 [172/172 (100%)] Loss: 0.026115 (avg: 0.067407)  sec/iter: 0.0075
+Train Epoch: 47 [172/172 (100%)] Loss: 0.034681 (avg: 0.063558)  sec/iter: 0.0073
+Train Epoch: 48 [172/172 (100%)] Loss: 0.096800 (avg: 0.067307)  sec/iter: 0.0071
+Train Epoch: 49 [172/172 (100%)] Loss: 0.191948 (avg: 0.069176)  sec/iter: 0.0071
+Train Epoch: 50 [172/172 (100%)] Loss: 0.041544 (avg: 0.073029)  sec/iter: 0.0070
+Test set (epoch 50): Average loss: 0.2774, Accuracy: (90.10%), Recall: (76.88%), Precision: (100.00%), F1-Score: (85.89%)  sec/iter: 0.0175
+
+fn_list(predict == 0 & label == 1): [138, 66, 210]
+fp_list(predict == 1 & label == 0): []
+
+TRAIN: 172/216
+TEST: 44/216
+FOLD 2, train 172, test 44
+Initialize model...
+N trainable parameters: 24962
+Train Epoch: 1 [172/172 (100%)] Loss: 0.601616 (avg: 0.816482)  sec/iter: 0.0069
+Train Epoch: 2 [172/172 (100%)] Loss: 0.488268 (avg: 0.657109)  sec/iter: 0.0073
+Train Epoch: 3 [172/172 (100%)] Loss: 0.248665 (avg: 0.571531)  sec/iter: 0.0067
+Train Epoch: 4 [172/172 (100%)] Loss: 0.518531 (avg: 0.514913)  sec/iter: 0.0071
+Train Epoch: 5 [172/172 (100%)] Loss: 0.421754 (avg: 0.496390)  sec/iter: 0.0068
+Train Epoch: 6 [172/172 (100%)] Loss: 0.368167 (avg: 0.459848)  sec/iter: 0.0064
+Train Epoch: 7 [172/172 (100%)] Loss: 0.254752 (avg: 0.302650)  sec/iter: 0.0066
+Train Epoch: 8 [172/172 (100%)] Loss: 0.189134 (avg: 0.259561)  sec/iter: 0.0070
+Train Epoch: 9 [172/172 (100%)] Loss: 0.274378 (avg: 0.222197)  sec/iter: 0.0068
+Train Epoch: 10 [172/172 (100%)] Loss: 0.131649 (avg: 0.148207)  sec/iter: 0.0069
+Train Epoch: 11 [172/172 (100%)] Loss: 0.104434 (avg: 0.139143)  sec/iter: 0.0072
+Train Epoch: 12 [172/172 (100%)] Loss: 0.129347 (avg: 0.112489)  sec/iter: 0.0071
+Train Epoch: 13 [172/172 (100%)] Loss: 0.186710 (avg: 0.111887)  sec/iter: 0.0075
+Train Epoch: 14 [172/172 (100%)] Loss: 0.106674 (avg: 0.108894)  sec/iter: 0.0073
+Train Epoch: 15 [172/172 (100%)] Loss: 0.143545 (avg: 0.102620)  sec/iter: 0.0075
+Train Epoch: 16 [172/172 (100%)] Loss: 0.106248 (avg: 0.102124)  sec/iter: 0.0072
+Train Epoch: 17 [172/172 (100%)] Loss: 0.060480 (avg: 0.101146)  sec/iter: 0.0070
+Train Epoch: 18 [172/172 (100%)] Loss: 0.061530 (avg: 0.095654)  sec/iter: 0.0067
+Train Epoch: 19 [172/172 (100%)] Loss: 0.037575 (avg: 0.089907)  sec/iter: 0.0069
+Train Epoch: 20 [172/172 (100%)] Loss: 0.078524 (avg: 0.091664)  sec/iter: 0.0065
+Train Epoch: 21 [172/172 (100%)] Loss: 0.069542 (avg: 0.098745)  sec/iter: 0.0065
+Train Epoch: 22 [172/172 (100%)] Loss: 0.051944 (avg: 0.093679)  sec/iter: 0.0071
+Train Epoch: 23 [172/172 (100%)] Loss: 0.127945 (avg: 0.089886)  sec/iter: 0.0069
+Train Epoch: 24 [172/172 (100%)] Loss: 0.038012 (avg: 0.095696)  sec/iter: 0.0069
+Train Epoch: 25 [172/172 (100%)] Loss: 0.062471 (avg: 0.093769)  sec/iter: 0.0079
+Train Epoch: 26 [172/172 (100%)] Loss: 0.069445 (avg: 0.091560)  sec/iter: 0.0066
+Train Epoch: 27 [172/172 (100%)] Loss: 0.127885 (avg: 0.093504)  sec/iter: 0.0092
+Train Epoch: 28 [172/172 (100%)] Loss: 0.119229 (avg: 0.090152)  sec/iter: 0.0077
+Train Epoch: 29 [172/172 (100%)] Loss: 0.040859 (avg: 0.079698)  sec/iter: 0.0076
+Train Epoch: 30 [172/172 (100%)] Loss: 0.064774 (avg: 0.092120)  sec/iter: 0.0075
+Train Epoch: 31 [172/172 (100%)] Loss: 0.067937 (avg: 0.082015)  sec/iter: 0.0068
+Train Epoch: 32 [172/172 (100%)] Loss: 0.100848 (avg: 0.084639)  sec/iter: 0.0076
+Train Epoch: 33 [172/172 (100%)] Loss: 0.163253 (avg: 0.089769)  sec/iter: 0.0080
+Train Epoch: 34 [172/172 (100%)] Loss: 0.153547 (avg: 0.087651)  sec/iter: 0.0084
+Train Epoch: 35 [172/172 (100%)] Loss: 0.074535 (avg: 0.097059)  sec/iter: 0.0076
+Train Epoch: 36 [172/172 (100%)] Loss: 0.198475 (avg: 0.085779)  sec/iter: 0.0069
+Train Epoch: 37 [172/172 (100%)] Loss: 0.086140 (avg: 0.089161)  sec/iter: 0.0069
+Train Epoch: 38 [172/172 (100%)] Loss: 0.129018 (avg: 0.088091)  sec/iter: 0.0066
+Train Epoch: 39 [172/172 (100%)] Loss: 0.027902 (avg: 0.082429)  sec/iter: 0.0068
+Train Epoch: 40 [172/172 (100%)] Loss: 0.067598 (avg: 0.088194)  sec/iter: 0.0067
+Train Epoch: 41 [172/172 (100%)] Loss: 0.130883 (avg: 0.089222)  sec/iter: 0.0069
+Train Epoch: 42 [172/172 (100%)] Loss: 0.124833 (avg: 0.095292)  sec/iter: 0.0077
+Train Epoch: 43 [172/172 (100%)] Loss: 0.040741 (avg: 0.089959)  sec/iter: 0.0071
+Train Epoch: 44 [172/172 (100%)] Loss: 0.228434 (avg: 0.091418)  sec/iter: 0.0067
+Train Epoch: 45 [172/172 (100%)] Loss: 0.176934 (avg: 0.088322)  sec/iter: 0.0067
+Train Epoch: 46 [172/172 (100%)] Loss: 0.036641 (avg: 0.084940)  sec/iter: 0.0071
+Train Epoch: 47 [172/172 (100%)] Loss: 0.048552 (avg: 0.083744)  sec/iter: 0.0070
+Train Epoch: 48 [172/172 (100%)] Loss: 0.046875 (avg: 0.090089)  sec/iter: 0.0073
+Train Epoch: 49 [172/172 (100%)] Loss: 0.045764 (avg: 0.082293)  sec/iter: 0.0071
+Train Epoch: 50 [172/172 (100%)] Loss: 0.084083 (avg: 0.095642)  sec/iter: 0.0075
+Test set (epoch 50): Average loss: 0.1643, Accuracy: (86.98%), Recall: (100.00%), Precision: (76.34%), F1-Score: (86.49%)  sec/iter: 0.0179
+
+fn_list(predict == 0 & label == 1): []
+fp_list(predict == 1 & label == 0): [73, 150, 6, 145, 1]
+
+TRAIN: 172/216
+TEST: 44/216
+FOLD 3, train 172, test 44
+Initialize model...
+N trainable parameters: 24962
+Train Epoch: 1 [172/172 (100%)] Loss: 0.698362 (avg: 0.770686)  sec/iter: 0.0072
+Train Epoch: 2 [172/172 (100%)] Loss: 0.698402 (avg: 0.650178)  sec/iter: 0.0071
+Train Epoch: 3 [172/172 (100%)] Loss: 0.631856 (avg: 0.549958)  sec/iter: 0.0070
+Train Epoch: 4 [172/172 (100%)] Loss: 0.446233 (avg: 0.489013)  sec/iter: 0.0073
+Train Epoch: 5 [172/172 (100%)] Loss: 0.313072 (avg: 0.387594)  sec/iter: 0.0073
+Train Epoch: 6 [172/172 (100%)] Loss: 0.499312 (avg: 0.326339)  sec/iter: 0.0076
+Train Epoch: 7 [172/172 (100%)] Loss: 0.390339 (avg: 0.247982)  sec/iter: 0.0071
+Train Epoch: 8 [172/172 (100%)] Loss: 0.135107 (avg: 0.263717)  sec/iter: 0.0073
+Train Epoch: 9 [172/172 (100%)] Loss: 0.111696 (avg: 0.184856)  sec/iter: 0.0070
+Train Epoch: 10 [172/172 (100%)] Loss: 0.091656 (avg: 0.150302)  sec/iter: 0.0069
+Train Epoch: 11 [172/172 (100%)] Loss: 0.156584 (avg: 0.136066)  sec/iter: 0.0072
+Train Epoch: 12 [172/172 (100%)] Loss: 0.055451 (avg: 0.116668)  sec/iter: 0.0072
+Train Epoch: 13 [172/172 (100%)] Loss: 0.027438 (avg: 0.107375)  sec/iter: 0.0068
+Train Epoch: 14 [172/172 (100%)] Loss: 0.104422 (avg: 0.106079)  sec/iter: 0.0066
+Train Epoch: 15 [172/172 (100%)] Loss: 0.045268 (avg: 0.106045)  sec/iter: 0.0066
+Train Epoch: 16 [172/172 (100%)] Loss: 0.112541 (avg: 0.095984)  sec/iter: 0.0066
+Train Epoch: 17 [172/172 (100%)] Loss: 0.118204 (avg: 0.098088)  sec/iter: 0.0072
+Train Epoch: 18 [172/172 (100%)] Loss: 0.157574 (avg: 0.097474)  sec/iter: 0.0071
+Train Epoch: 19 [172/172 (100%)] Loss: 0.009914 (avg: 0.106265)  sec/iter: 0.0075
+Train Epoch: 20 [172/172 (100%)] Loss: 0.056050 (avg: 0.102354)  sec/iter: 0.0073
+Train Epoch: 21 [172/172 (100%)] Loss: 0.181873 (avg: 0.105063)  sec/iter: 0.0066
+Train Epoch: 22 [172/172 (100%)] Loss: 0.119720 (avg: 0.098250)  sec/iter: 0.0070
+Train Epoch: 23 [172/172 (100%)] Loss: 0.119702 (avg: 0.102513)  sec/iter: 0.0068
+Train Epoch: 24 [172/172 (100%)] Loss: 0.029844 (avg: 0.094805)  sec/iter: 0.0067
+Train Epoch: 25 [172/172 (100%)] Loss: 0.064681 (avg: 0.101905)  sec/iter: 0.0066
+Train Epoch: 26 [172/172 (100%)] Loss: 0.096071 (avg: 0.094765)  sec/iter: 0.0077
+Train Epoch: 27 [172/172 (100%)] Loss: 0.067579 (avg: 0.097035)  sec/iter: 0.0069
+Train Epoch: 28 [172/172 (100%)] Loss: 0.074111 (avg: 0.087311)  sec/iter: 0.0080
+Train Epoch: 29 [172/172 (100%)] Loss: 0.062901 (avg: 0.090813)  sec/iter: 0.0065
+Train Epoch: 30 [172/172 (100%)] Loss: 0.161722 (avg: 0.099922)  sec/iter: 0.0075
+Train Epoch: 31 [172/172 (100%)] Loss: 0.074168 (avg: 0.083418)  sec/iter: 0.0073
+Train Epoch: 32 [172/172 (100%)] Loss: 0.069365 (avg: 0.098068)  sec/iter: 0.0068
+Train Epoch: 33 [172/172 (100%)] Loss: 0.036908 (avg: 0.085751)  sec/iter: 0.0076
+Train Epoch: 34 [172/172 (100%)] Loss: 0.162763 (avg: 0.088645)  sec/iter: 0.0069
+Train Epoch: 35 [172/172 (100%)] Loss: 0.095987 (avg: 0.085456)  sec/iter: 0.0067
+Train Epoch: 36 [172/172 (100%)] Loss: 0.037193 (avg: 0.092427)  sec/iter: 0.0070
+Train Epoch: 37 [172/172 (100%)] Loss: 0.139108 (avg: 0.087220)  sec/iter: 0.0064
+Train Epoch: 38 [172/172 (100%)] Loss: 0.140287 (avg: 0.094469)  sec/iter: 0.0066
+Train Epoch: 39 [172/172 (100%)] Loss: 0.024599 (avg: 0.094598)  sec/iter: 0.0075
+Train Epoch: 40 [172/172 (100%)] Loss: 0.157622 (avg: 0.100773)  sec/iter: 0.0077
+Train Epoch: 41 [172/172 (100%)] Loss: 0.255393 (avg: 0.087559)  sec/iter: 0.0073
+Train Epoch: 42 [172/172 (100%)] Loss: 0.059422 (avg: 0.091901)  sec/iter: 0.0072
+Train Epoch: 43 [172/172 (100%)] Loss: 0.031184 (avg: 0.087760)  sec/iter: 0.0070
+Train Epoch: 44 [172/172 (100%)] Loss: 0.017742 (avg: 0.110952)  sec/iter: 0.0075
+Train Epoch: 45 [172/172 (100%)] Loss: 0.087022 (avg: 0.093220)  sec/iter: 0.0074
+Train Epoch: 46 [172/172 (100%)] Loss: 0.027223 (avg: 0.094705)  sec/iter: 0.0069
+Train Epoch: 47 [172/172 (100%)] Loss: 0.159956 (avg: 0.098180)  sec/iter: 0.0073
+Train Epoch: 48 [172/172 (100%)] Loss: 0.184696 (avg: 0.091835)  sec/iter: 0.0069
+Train Epoch: 49 [172/172 (100%)] Loss: 0.100058 (avg: 0.089981)  sec/iter: 0.0073
+Train Epoch: 50 [172/172 (100%)] Loss: 0.153533 (avg: 0.090354)  sec/iter: 0.0071
+Test set (epoch 50): Average loss: 0.0856, Accuracy: (95.83%), Recall: (90.00%), Precision: (100.00%), F1-Score: (94.44%)  sec/iter: 0.0175
+
+fn_list(predict == 0 & label == 1): [20]
+fp_list(predict == 1 & label == 0): []
+
+TRAIN: 176/216
+TEST: 40/216
+FOLD 4, train 176, test 40
+Initialize model...
+N trainable parameters: 24962
+Train Epoch: 1 [176/176 (100%)] Loss: 0.793819 (avg: 0.778036)  sec/iter: 0.0068
+Train Epoch: 2 [176/176 (100%)] Loss: 0.721755 (avg: 0.628249)  sec/iter: 0.0066
+Train Epoch: 3 [176/176 (100%)] Loss: 0.569893 (avg: 0.567801)  sec/iter: 0.0067
+Train Epoch: 4 [176/176 (100%)] Loss: 0.439251 (avg: 0.487824)  sec/iter: 0.0064
+Train Epoch: 5 [176/176 (100%)] Loss: 0.446963 (avg: 0.438133)  sec/iter: 0.0067
+Train Epoch: 6 [176/176 (100%)] Loss: 0.354559 (avg: 0.359651)  sec/iter: 0.0069
+Train Epoch: 7 [176/176 (100%)] Loss: 0.250424 (avg: 0.274903)  sec/iter: 0.0064
+Train Epoch: 8 [176/176 (100%)] Loss: 0.479218 (avg: 0.254867)  sec/iter: 0.0067
+Train Epoch: 9 [176/176 (100%)] Loss: 0.149228 (avg: 0.194100)  sec/iter: 0.0068
+Train Epoch: 10 [176/176 (100%)] Loss: 0.083230 (avg: 0.131249)  sec/iter: 0.0067
+Train Epoch: 11 [176/176 (100%)] Loss: 0.093973 (avg: 0.113387)  sec/iter: 0.0086
+Train Epoch: 12 [176/176 (100%)] Loss: 0.153661 (avg: 0.112007)  sec/iter: 0.0090
+Train Epoch: 13 [176/176 (100%)] Loss: 0.090159 (avg: 0.100958)  sec/iter: 0.0089
+Train Epoch: 14 [176/176 (100%)] Loss: 0.049304 (avg: 0.097689)  sec/iter: 0.0077
+Train Epoch: 15 [176/176 (100%)] Loss: 0.103183 (avg: 0.107225)  sec/iter: 0.0094
+Train Epoch: 16 [176/176 (100%)] Loss: 0.085897 (avg: 0.100821)  sec/iter: 0.0077
+Train Epoch: 17 [176/176 (100%)] Loss: 0.069803 (avg: 0.087715)  sec/iter: 0.0085
+Train Epoch: 18 [176/176 (100%)] Loss: 0.058130 (avg: 0.096929)  sec/iter: 0.0072
+Train Epoch: 19 [176/176 (100%)] Loss: 0.058472 (avg: 0.087728)  sec/iter: 0.0072
+Train Epoch: 20 [176/176 (100%)] Loss: 0.166439 (avg: 0.095334)  sec/iter: 0.0068
+Train Epoch: 21 [176/176 (100%)] Loss: 0.056879 (avg: 0.090387)  sec/iter: 0.0066
+Train Epoch: 22 [176/176 (100%)] Loss: 0.102620 (avg: 0.088690)  sec/iter: 0.0087
+Train Epoch: 23 [176/176 (100%)] Loss: 0.057098 (avg: 0.102395)  sec/iter: 0.0070
+Train Epoch: 24 [176/176 (100%)] Loss: 0.091129 (avg: 0.094390)  sec/iter: 0.0078
+Train Epoch: 25 [176/176 (100%)] Loss: 0.017685 (avg: 0.081409)  sec/iter: 0.0083
+Train Epoch: 26 [176/176 (100%)] Loss: 0.022318 (avg: 0.080307)  sec/iter: 0.0071
+Train Epoch: 27 [176/176 (100%)] Loss: 0.053285 (avg: 0.079203)  sec/iter: 0.0076
+Train Epoch: 28 [176/176 (100%)] Loss: 0.078980 (avg: 0.084237)  sec/iter: 0.0070
+Train Epoch: 29 [176/176 (100%)] Loss: 0.056502 (avg: 0.088279)  sec/iter: 0.0064
+Train Epoch: 30 [176/176 (100%)] Loss: 0.082793 (avg: 0.087957)  sec/iter: 0.0071
+Train Epoch: 31 [176/176 (100%)] Loss: 0.113176 (avg: 0.091237)  sec/iter: 0.0069
+Train Epoch: 32 [176/176 (100%)] Loss: 0.049094 (avg: 0.084643)  sec/iter: 0.0067
+Train Epoch: 33 [176/176 (100%)] Loss: 0.211022 (avg: 0.076992)  sec/iter: 0.0072
+Train Epoch: 34 [176/176 (100%)] Loss: 0.113368 (avg: 0.077405)  sec/iter: 0.0072
+Train Epoch: 35 [176/176 (100%)] Loss: 0.086361 (avg: 0.086305)  sec/iter: 0.0066
+Train Epoch: 36 [176/176 (100%)] Loss: 0.050881 (avg: 0.091210)  sec/iter: 0.0070
+Train Epoch: 37 [176/176 (100%)] Loss: 0.029359 (avg: 0.083981)  sec/iter: 0.0065
+Train Epoch: 38 [176/176 (100%)] Loss: 0.066044 (avg: 0.086686)  sec/iter: 0.0064
+Train Epoch: 39 [176/176 (100%)] Loss: 0.107794 (avg: 0.080518)  sec/iter: 0.0068
+Train Epoch: 40 [176/176 (100%)] Loss: 0.087024 (avg: 0.083176)  sec/iter: 0.0067
+Train Epoch: 41 [176/176 (100%)] Loss: 0.102604 (avg: 0.088453)  sec/iter: 0.0062
+Train Epoch: 42 [176/176 (100%)] Loss: 0.124444 (avg: 0.081532)  sec/iter: 0.0063
+Train Epoch: 43 [176/176 (100%)] Loss: 0.030793 (avg: 0.080458)  sec/iter: 0.0065
+Train Epoch: 44 [176/176 (100%)] Loss: 0.079721 (avg: 0.075542)  sec/iter: 0.0067
+Train Epoch: 45 [176/176 (100%)] Loss: 0.041674 (avg: 0.090431)  sec/iter: 0.0065
+Train Epoch: 46 [176/176 (100%)] Loss: 0.132333 (avg: 0.089350)  sec/iter: 0.0064
+Train Epoch: 47 [176/176 (100%)] Loss: 0.115775 (avg: 0.089144)  sec/iter: 0.0064
+Train Epoch: 48 [176/176 (100%)] Loss: 0.084483 (avg: 0.088353)  sec/iter: 0.0065
+Train Epoch: 49 [176/176 (100%)] Loss: 0.092592 (avg: 0.086886)  sec/iter: 0.0060
+Train Epoch: 50 [176/176 (100%)] Loss: 0.014831 (avg: 0.083273)  sec/iter: 0.0064
+Test set (epoch 50): Average loss: 0.1028, Accuracy: (98.44%), Recall: (100.00%), Precision: (97.50%), F1-Score: (98.72%)  sec/iter: 0.0156
+
+fn_list(predict == 0 & label == 1): []
+fp_list(predict == 1 & label == 0): [47]
+
+[[94.27083333333333, 90.80882352941177, 100.0, 95.15151515151516], [90.10416666666667, 76.875, 100.0, 85.88709677419355], [86.97916666666667, 100.0, 76.33928571428572, 86.49425287356321], [95.83333333333333, 90.0, 100.0, 94.44444444444444], [98.4375, 100.0, 97.5, 98.71794871794873]]
+5-fold cross validation avg acc (+- std): 93.125% (4.093100563414268%), recall (+- std): 91.53676470588235% (8.49837151100729%), precision (+- std): 94.76785714285714% (9.265018144854857%), F1-Score (+- std): 92.13905159233302% (5.07192965075195%)
