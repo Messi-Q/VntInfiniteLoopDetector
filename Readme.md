@@ -23,9 +23,9 @@ pip install scikit-learn
 ```
 
 ### Required Dataset
-This repository contains the vnt smart contract dataset related to infinite loop task. So far, we have designed and written 72 vnt smart contracts for infinite loop task, which it refers to the extracted graph structure from smart contract.
+This repository contains the vnt smart contract dataset related to infinite loop task. So far, we have designed and written 72 vnt smart contracts for infinite loop task, which it refers to the extracted graph structure from the smart contract.
 It needs to point that we expanded the 72 types of data to 216 (3 times) due to the requirements of the neural network model. The advantage of using a deep learning neural network is that it can quickly adapt to new situations. 
-Moreover, it can achieve manual detection or even exceed the artificial effect with the sufficient data.
+Moreover, it can achieve manual detection or even exceed the artificial effect with sufficient data.
 
 
 ### Data structure
@@ -61,7 +61,7 @@ ${VntInfiniteLoopDetector}
 * `graph_data/node`: It includes all nodes and node attributes of each smart contract graph structure.
 * `graph_data/result`: This is the feature vector of all points after feature ablation.
 * `vnt_contract/examples`: There are some vnt smart contract instances, includes the official example of `dice.c`.
-* `vnt_contract/infinite_loop`: This contains the current completed vnt smart contracts related to infinite loop, inlcudes `fallback`, `for`, `while` and `function infinite call`.
+* `vnt_contract/infinite_loop`: This contains the current completed vnt smart contracts related to infinite loop, includes `fallback`, `for`, `while` and `function infinite call`.
 * `vnt_contract/regular_contract`: These smart contracts are similar to the above, but it is normal.
 
 ### Code Files
@@ -95,8 +95,8 @@ ${VntInfiniteLoopDetector}
 **Note:** The graph structure automation extraction tool is being improved.
 
 ## Running project
-* To run program, use this command: python InfiniteLoopDetector.py.
-* In addition, you can use specific hyperparameters to train the model. All the hyperparameters can be found in `parser.py`.
+* To run the program, use this command: python InfiniteLoopDetector.py.
+* Also, you can use specific hyperparameters to train the model. All the hyperparameters can be found in `parser.py`.
 
 Examples:
 ```shell
@@ -123,7 +123,7 @@ In the analysis below, we abstract the smart contract into four core nodes: S, W
 Second, we add a VAR node to represent the variable statement in the contract, and the VAR node will be ablated to the core nodes. The attributes of nodes and edges are as follows:
 
 (1) Core node attributes
-<div align=center><img width=600" height="60" src="./figs/node.png"/></div>
+<div align=center><img width=600" height="80" src="./figs/node.png"/></div>
 (2) VAR attributes
 <div align=center><img width=350" height="60" src="./figs/var.png"/></div>
 (3) Edge attributes
@@ -135,7 +135,7 @@ The above figure shows an infinite loop case where a For loop may exist in a sma
 
 ### While
 <div align=center><img width=600" height="290" src="./figs/while.png"/></div>
-The above figure shows an infinite loop case in which the While loop in the smart contract exists. When isDone is True, the while will always execute, resulting in an infinite loop. In this case, we also mark the case where the while is always established by adding the "CONTRUE" flag, that is, the infinite loop flag, and the corresponding "CONNORM" flag is used as the condition.
+The above figure shows an infinite loop case in which the While loop in the smart contract exists. When "isDone" is True, the while will always execute, resulting in an infinite loop. In this case, we also mark the case where the while is always established by adding the "CONTRUE" flag, that is, the infinite loop flag, and the corresponding "CONNORM" flag is used as the condition.
 
 ### Fallback
 <div align=center><img width=600" height="270" src="./figs/fallback.png"/></div>
