@@ -123,28 +123,28 @@ In the analysis below, we abstract the smart contract into four core nodes: S, W
 Second, we add a VAR node to represent the variable statement in the contract, and the VAR node will be ablated to the core nodes. The attributes of nodes and edges are as follows:
 
 (1) Core node attributes
-<div align=center><img width=800" height="120" src="./figs/node.png"/></div>
+<div align=center><img width=600" height="60" src="./figs/node.png"/></div>
 (2) VAR attributes
-<div align=center><img width=650" height="120" src="./figs/var.png"/></div>
+<div align=center><img width=350" height="60" src="./figs/var.png"/></div>
 (3) Edge attributes
-<div align=center><img width=450" height="220" src="./figs/edge.png"/></div>
+<div align=center><img width="350" height="120" src="./figs/edge.png"/></div>
 
 ### For
 <div align=center><img width=600" height="300" src="./figs/for.png"/></div>
 The above figure shows an infinite loop case where a For loop may exist in a smart contract. The type of i is uint8, and the maximum value of this type variable is 255, so it will cause an infinite loop. In this case, we mark it as an infinite loop by adding the "OVERLIMIT" flag, and the corresponding "INNLIMIT" flag is used as a normal loop.
 
 ### While
-<div align=center><img width=600" height="300" src="./figs/while.png"/></div>
+<div align=center><img width=600" height="290" src="./figs/while.png"/></div>
 The above figure shows an infinite loop case in which the While loop in the smart contract exists. When isDone is True, the while will always execute, resulting in an infinite loop. In this case, we also mark the case where the while is always established by adding the "CONTRUE" flag, that is, the infinite loop flag, and the corresponding "CONNORM" flag is used as the condition.
 
 ### Fallback
-<div align=center><img width=600" height="300" src="./figs/fallback.png"/></div>
+<div align=center><img width=600" height="270" src="./figs/fallback.png"/></div>
 The above figure shows an infinite loop case of the fallback function call in the smart contract. Here are four types of function nodes S, W, C, F.
 C calls the W function, when the W function is input incorrectly or empty, it will cause the W function to call the Fallback function F. Moreover, C function is called by default in F, which leads to the generation of an infinite loop. 
 In the C function, we use the "FALLCALL" flag to call F.
 
 ### Function Infinite Call
-<div align=center><img width=600" height="300" src="./figs/function_call.png"/></div>
+<div align=center><img width=600" height="270" src="./figs/function_call.png"/></div>
 The above figure shows an example of an infinite loop of function calls in a smart contract. Here are four types of function nodes S, W, C, and F. It means that C calls W, W calls S, and S calls C, which forms a loop, which leads to an infinite loop.
 
 ## Models and Results
