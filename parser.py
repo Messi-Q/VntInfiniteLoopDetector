@@ -21,12 +21,12 @@ def parameter_parser():
     parser.add_argument('--log_interval', type=int, default=1,
                         help='interval (number of batches) of logging')
     parser.add_argument('--device', type=str, default='cpu', choices=['cuda', 'cpu'])
-    parser.add_argument('--seed', type=int, default=100, help='random seed')
+    parser.add_argument('--seed', type=int, default=2484, help='random seed')
     parser.add_argument('--shuffle_nodes', action='store_true', default=False, help='shuffle nodes for debugging')
     parser.add_argument('-F', '--folds', default=5, choices=[5, 8, 10], help='n-fold cross validation')
-    parser.add_argument('-a', '--adj_sq', action='store_true', default=False,
+    parser.add_argument('-a', '--adj_sq', action='store_true', default=True,
                         help='use A^2 instead of A as an adjacency matrix')
-    parser.add_argument('-s', '--scale_identity', action='store_true', default=False,
+    parser.add_argument('-s', '--scale_identity', action='store_true', default=True,
                         help='use 2I instead of I for self connections')
     parser.add_argument('-c', '--use_cont_node_attr', action='store_true', default=True,
                         help='use continuous node attributes in addition to discrete ones')
