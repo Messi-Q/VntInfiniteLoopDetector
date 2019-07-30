@@ -61,7 +61,7 @@ ${VntInfiniteLoopDetector}
 * `graph_data/node`: It includes all nodes and node attributes of each smart contract graph structure.
 * `graph_data/result`: This is the feature vector of all points after feature ablation.
 * `vnt_contract/examples`: There are some vnt smart contract instances, includes the official example of `dice.c`.
-* `vnt_contract/infinite_loop`: This contains the current completed vnt smart contracts related to infinite loop, inlcudes `fallback`、`for`、`while` and `function infinite call`.
+* `vnt_contract/infinite_loop`: This contains the current completed vnt smart contracts related to infinite loop, inlcudes `fallback`, `for`, `while` and `function infinite call`.
 * `vnt_contract/regular_contract`: These smart contracts are similar to the above, but it is normal.
 
 ### Code Files
@@ -81,14 +81,17 @@ ${VntInfiniteLoopDetector}
 `InfiniteLoopDetector.py`
 * Interface to project, uses functionality from other code files.
 * Loads dataset, trains gcn model, passes to neural network, models evaluation.
+
 `graph2vec.py`
 * Feature ablation.
 * Converts graph into vectors.
+
 `automatic_generate_graph.py`
 * All functions in the smart contract code are automatically split and stored.
 * Find infinite loop call relationships between functions.
 * Find out the infinite loop caused by for, while, and fallback.
 * Extract all infinite loops into features of nodes and edges.
+
 **Note:** The graph structure automation extraction tool is being improved.
 
 ## Running project
@@ -118,29 +121,30 @@ Losses caused by infinite loops in smart contracts are directly related to our i
 ### Attribute tag
 In the analysis below, we abstract the smart contract into four core nodes: S, W, C, F. S, W, C are used as three function nodes to process the loop call relationship; the fallback function is used as the fourth type node F. 
 Second, we add a VAR node to represent the variable statement in the contract, and the VAR node will be ablated to the core nodes. The attributes of nodes and edges are as follows:
+
 (1) Core node attributes
-<div align=center><img width=400" height="120" src="./figs/node.png"/></div>
+<div align=center><img width=800" height="120" src="./figs/node.png"/></div>
 (2) VAR attributes
-<div align=center><img width=400" height="120" src="./figs/var.png"/></div>
+<div align=center><img width=650" height="120" src="./figs/var.png"/></div>
 (3) Edge attributes
-<div align=center><img width=400" height="120" src="./figs/edge.png"/></div>
+<div align=center><img width=450" height="220" src="./figs/edge.png"/></div>
 
 ### For
-<div align=center><img width=500" height="300" src="./figs/for.png"/></div>
+<div align=center><img width=600" height="300" src="./figs/for.png"/></div>
 The above figure shows an infinite loop case where a For loop may exist in a smart contract. The type of i is uint8, and the maximum value of this type variable is 255, so it will cause an infinite loop. In this case, we mark it as an infinite loop by adding the "OVERLIMIT" flag, and the corresponding "INNLIMIT" flag is used as a normal loop.
 
 ### While
-<div align=center><img width=500" height="300" src="./figs/while.png"/></div>
+<div align=center><img width=600" height="300" src="./figs/while.png"/></div>
 The above figure shows an infinite loop case in which the While loop in the smart contract exists. When isDone is True, the while will always execute, resulting in an infinite loop. In this case, we also mark the case where the while is always established by adding the "CONTRUE" flag, that is, the infinite loop flag, and the corresponding "CONNORM" flag is used as the condition.
 
 ### Fallback
-<div align=center><img width=500" height="300" src="./figs/fallback.png"/></div>
+<div align=center><img width=600" height="300" src="./figs/fallback.png"/></div>
 The above figure shows an infinite loop case of the fallback function call in the smart contract. Here are four types of function nodes S, W, C, F.
 C calls the W function, when the W function is input incorrectly or empty, it will cause the W function to call the Fallback function F. Moreover, C function is called by default in F, which leads to the generation of an infinite loop. 
 In the C function, we use the "FALLCALL" flag to call F.
 
 ### Function Infinite Call
-<div align=center><img width=500" height="300" src="./figs/function_call.png"/></div>
+<div align=center><img width=600" height="300" src="./figs/function_call.png"/></div>
 The above figure shows an example of an infinite loop of function calls in a smart contract. Here are four types of function nodes S, W, C, and F. It means that C calls W, W calls S, and S calls C, which forms a loop, which leads to an infinite loop.
 
 ## Models and Results
@@ -159,9 +163,10 @@ Average of all the evaluation for 5-fold cross-validation. The performance evalu
 
 | Model | Accuracy(%) | Recall(%) | Precision(%) |False positive rate(FP)(%) | False negative rate(FN)(%) | F1 score(%) |
 | ------------- | ------------- | ------------- | ------------- |  ------------- |  ------------- |  ------------- |
-| GCN | 82.33 | 25.17 | 10.23 | **89.77** | 78.28 | 83.49 |
-| GCN + A^2 + 2I | 82.33 | 25.17 | 10.23 | **89.77** | 78.28 | 83.49 |
-| GCN with remove D + A^2 + 2I | 82.33 | 25.17 | 10.23 | **89.77** | 78.28 | 83.49 |
+| **GCN** | 86.87 | 90.88 | 84.33 | 15.67 | 9.12 | 86.83 |
+| **GCN + A^2 + 2I** | 86.22 | 86.33 | 85.45 | 14.55 | 13.67 | 84.74 |
+| **GCN with remove D**| 93.26 | 92.56 | 92.24 | 7.76 | 7.44 | 91.86 |
+| **GCN with remove D + A^2 + 2I** | 94.66 | 94.41 | 94.67 | 5.33 | 5.59 | 94.22 |
 
 These results were obtained by running:
 
@@ -172,3 +177,4 @@ These results were obtained by running:
 1. VNT Document. [vnt-document](https://github.com/vntchain/vnt-documentation).
 2. Graph classification with Graph Convolutional Networks in PyTorch. [graph_nn](https://github.com/bknyaz/graph_nn).
 3. Smart contract vulnerability detection based on graph neural network (GCN). [GraphDeeSmartContract](https://github.com/Messi-Q/GraphDeeSmartContract).
+4. Thomas N. Kipf, Max Welling, Semi-Supervised Classification with Graph Convolutional Networks, ICLR 2017. [GCN](https://arxiv.org/abs/1609.02907).
