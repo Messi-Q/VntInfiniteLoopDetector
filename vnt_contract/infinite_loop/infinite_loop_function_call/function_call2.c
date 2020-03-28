@@ -3,9 +3,9 @@
 constructor Function1(){}
 
 MUTABLE
-uint32 test1(uint256 amount){
-    v = a;
-    c = test2(a, v)
+uint32 test1(uint256 a){
+    uint32 v = a;
+    uint32 c = test2(a, v)
     return c;
 }
 

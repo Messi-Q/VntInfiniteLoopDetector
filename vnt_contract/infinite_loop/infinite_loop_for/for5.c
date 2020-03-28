@@ -1,7 +1,7 @@
 #include "vntlib.h"
 
 // 计数
-KEY uint256 count;
+KEY uint256 count = 0;
 
 constructor For5(){
 }
@@ -9,7 +9,7 @@ constructor For5(){
 MUTABLE
 uint32 test1(){
 
-    for (k = -1; k = 1; k++) {
+    for (int32 k = -1; k = 1; k++) {
         count++;
     }
 

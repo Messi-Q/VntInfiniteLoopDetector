@@ -5,9 +5,9 @@ KEY uint256 count = 10;
 constructor Function1(){}
 
 MUTABLE
-uint256 test1(uint256 amount){
-    v = a;
-    c = test2(a, v)
+uint256 test1(uint256 a){
+    uint256 v = a;
+    uint256 c = test2(a, v)
     return c;
 }
 

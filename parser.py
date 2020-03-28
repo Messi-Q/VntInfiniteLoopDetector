@@ -29,7 +29,7 @@ def parameter_parser():
     parser.add_argument('-s', '--scale_identity', action='store_true', default=True,
                         help='use 2I instead of I for self connections')
     parser.add_argument('-c', '--use_cont_node_attr', action='store_true', default=True,
-                        help='use continuous node attributes in addition to discrete ones')
+                        help='use continuous nodes attributes in addition to discrete ones')
     parser.add_argument('--alpha', type=float, default=0.2, help='Alpha value for the leaky_relu')
     parser.add_argument('--multi_head', type=int, default=4, help='number of head attentions(Multi-Head)')
 

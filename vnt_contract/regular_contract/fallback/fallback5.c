@@ -14,7 +14,8 @@ constructor Fallback5{}
 
 MUTABLE
 void test1(){
-    getRes(GetSender());
+    uint256 res = getRes(GetSender());
+    PrintUint256T("uint256", res);
 }
 
 uint256 getRes(address addr) {

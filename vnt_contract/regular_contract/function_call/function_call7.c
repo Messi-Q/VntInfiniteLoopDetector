@@ -4,8 +4,8 @@ constructor Function7(){}
 
 MUTABLE
 uint64 test1(uint256 amount){
-    v = a;
-    c = test2(a, v)
+    uint64 v = a;
+    uint64 c = test2(a, v)
     return c;
 }
 

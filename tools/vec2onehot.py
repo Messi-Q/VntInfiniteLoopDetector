@@ -15,6 +15,7 @@ class vec2onehot:
     nodeAC_sentence = []
     node_sentence = []
     var_sentence = []
+    varFun_sentence = []
     sn_sentence = []
     infiniteLoopFlag_sentence = []
     varOP_vectors = {}
@@ -23,24 +24,29 @@ class vec2onehot:
     nodeAC_vectors = {}
     node_vectors = {}
     var_vectors = {}
+    varFun_vectors = {}
     sn_vectors = {}
     infiniteLoopFlag_vectors = {}
     # map user-defined variables (internal state) to symbolic names (e.g.,“VAR1”, “VAR2”) in the one-to-one fashion.
-    nodelist = ['NULL', 'VAR1', 'VAR2', 'VAR3', 'VAR4', 'VAR5', 'S', 'W', 'C', 'F']
-    # Edges (Variable-related, Program-related, Extension edge)
-    edgeOPlist = ["FW", "IF", "GB", "GN", "RE", "AS", "RG", "RV", "WHILE", "DOWHILE", "FOR", "MULFOR"]
+    nodelist = ['NULL', 'FALLBACK', 'FUN1', 'FUN2', 'FUN3', 'FUN4', 'FUN5', 'FUN6', 'FUN7', 'FUN8', 'VAR0', 'VAR1',
+                'VAR2',
+                'VAR3', 'VAR4', 'VAR5', 'Contract']
+    # Edges (Variable-related, Program-related, Extension edges)
+    edgeOPlist = ["FW", "IF", "GB", "GN", "WHILE", "FOR", "RE", "AH", "RG", "RH", "IT"]
     # variable expression
-    varOPlist = ["NULL", "BOOL", "ASSIGN", "INNFUN", "EVENT"]
-    # node call representation
+    varOPlist = ["NULL", "BOOL", "ASSIGN"]
+    # variable function expression
+    varFunlist = ["NULL", "INNFUN", "FOR", "WHILE"]
+    # nodes call representation
     nodeOplist = ["NULL", "CALL", "INNCALL", "SELFCALL", "FALLCALL"]
     # map user-defined arguments to symbolic names (e.g., “ARG1”,“ARG2”) in the one-to-one fashion;
     # this notation (SN) is to show the execution order
     snlist = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
     # Access control
-    aclist = ['NULL', 'void', 'uint', 'int', 'uint8', 'uint16', 'uint32', 'uint64', 'uint256', 'bool', 'fallback',
-              'construct']
+    aclist = ['NULL', 'void', 'uint', 'int', 'uint8', 'uint16', 'uint32', 'uint64', 'uint128', 'uint256', 'bool',
+              'string', 'address', 'FALLBACK']
     # infinite Loop Flag
-    infiniteLoopFlagList = ['NULL', 'INNLIMIT', 'CONNORM', 'OVERLIMIT', 'CONTRUE']
+    infiniteLoopFlagList = ['NULL', 'AFOR', 'AWHILE', 'LOOPFOR', 'LOOPWHILE', 'SELFCALL', 'FALLCALL']
 
     def __init__(self):
         for i in range(len(self.nodelist)):
@@ -51,6 +57,8 @@ class vec2onehot:
             self.edgeOP_sentence.append(i + 1)
         for i in range(len(self.varOPlist)):
             self.varOP_sentence.append(i + 1)
+        for i in range(len(self.varFunlist)):
+            self.varFun_sentence.append(i + 1)
         for i in range(len(self.aclist)):
             self.nodeAC_sentence.append(i + 1)
         for i in range(len(self.nodeOplist)):
@@ -60,6 +68,7 @@ class vec2onehot:
         self.node_dict = dict(zip(self.nodelist, self.node_sentence))
         self.sn_dict = dict(zip(self.snlist, self.sn_sentence))
         self.varOP_dict = dict(zip(self.varOPlist, self.varOP_sentence))
+        self.varFun_dict = dict(zip(self.varFunlist, self.varFun_sentence))
         self.edgOP_dict = dict(zip(self.edgeOPlist, self.edgeOP_sentence))
         self.nodeAC_dict = dict(zip(self.aclist, self.nodeAC_sentence))
         self.nodeOP_dict = dict(zip(self.nodeOplist, self.nodeOP_sentence))
@@ -68,6 +77,7 @@ class vec2onehot:
         self.node2vec()
         self.edgeOP2vec()
         self.varOP2vec()
+        self.varFun2vec()
         self.nodeOP2vec()
         self.nodeAC2vec()
         self.infiniteLoopFlag2vec()
@@ -111,6 +121,15 @@ class vec2onehot:
 
     def varOP2vecEmbedding(self, varOP):
         return self.varOP_vectors[varOP]
+
+    def varFun2vec(self):
+        for word, index in self.varFun_dict.items():
+            node_array = np.zeros(len(self.varFunlist), dtype=int)
+            self.varFun_vectors[word] = node_array
+            self.varFun_vectors[word][index - 1] = 1.0
+
+    def varFun2vecEmbedding(self, varFun):
+        return self.varFun_vectors[varFun]
 
     def nodeOP2vec(self):
         for word, index in self.nodeOP_dict.items():

@@ -1,6 +1,6 @@
 #include "vntlib.h"
 
-KEY uint8 count = 10;
+KEY uint256 count = U256(1000000000);
 
 constructor Fallback1() {
 

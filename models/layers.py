@@ -54,7 +54,7 @@ class GraphConv(nn.Module):
             mask = mask.unsqueeze(2)
         x = x * mask
         # to make values of dummy nodes zeros again, otherwise the bias is added after applying self.fc
-        # which affects node embeddings in the following layers
+        # which affects nodes embeddings in the following layers
         if self.activation is not None:
             x = self.activation(x)
         return x, A, mask

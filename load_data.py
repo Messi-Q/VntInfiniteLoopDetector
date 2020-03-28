@@ -56,7 +56,7 @@ class GraphData(torch.utils.data.Dataset):
 
 def collate_batch(batch):
     """
-    Creates a batch of same size graphs by zero-padding node features and adjacency matrices up to
+    Creates a batch of same size graphs by zero-padding nodes features and adjacency matrices up to
     the maximum number of nodes in the CURRENT batch rather than in the entire dataset.
     Graphs in the batches are usually much smaller than the largest graph in the dataset, so this method is fast.
     :param batch: [node_features * batch_size, A * batch_size, label * batch_size]

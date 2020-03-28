@@ -73,7 +73,7 @@ class DataReader():
             degrees.extend(list(np.sum(adj, 1)))
             features.append(np.array(data['features'][sample_id]))
 
-        # Create features over graphs as one-hot vectors for each node
+        # Create features over graphs as one-hot vectors for each nodes
         features_all = np.concatenate(features)
         features_min = features_all.min()
         num_features = int(features_all.max() - features_min + 1)  # number of possible values

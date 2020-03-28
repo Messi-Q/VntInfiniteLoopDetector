@@ -1,7 +1,7 @@
 #include "vntlib.h"
 
 // 计数
-KEY uint256 count;
+KEY uint256 count = 0;
 KEY uint256 max = 65535;
 
 constructor For4(){

@@ -1,7 +1,7 @@
 #include "vntlib.h"
 
 constructor Function5(){
-    PrintUint256T("recurrent times:", res);
+    PrintStr("recurrent times:", "recurrent times");
 }
 
 MUTABLE
